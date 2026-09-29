@@ -36,7 +36,7 @@
     paper: "a4",
     footer: context align(center, text(size: 9pt, fill: muted)[#counter(page).display("1")]),
   )
-  set text(font: ("New Computer Modern", "Noto Serif SC"), size: 12pt, fill: ink, lang: "en")
+  set text(font: "New Computer Modern", size: 12pt, fill: ink, lang: "en")
   show math.equation: set text(font: "New Computer Modern Math")
   set par(justify: true)
   set heading(numbering: "1.1")
