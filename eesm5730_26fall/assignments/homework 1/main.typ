@@ -95,7 +95,7 @@
 #question("2.2")[]
 
 #solution(append: "for (1)")[
-  Define right as the positive direction, then
+  Define the rightward direction as positive.
   $
     F(t)                                                               & = u(t) - f_("sp")(t) - f_("b")(t) \
     M dot.double(y)(t)                                                 & = u(t) - k (1 + a y^2(t)) y(t) - b dot(y)(t) \
@@ -104,11 +104,11 @@
 ]
 
 #solution(append: "for (2)")[
-  Omit $(t)$ in equation #ref(<2.2.ode>):
+  Omitting $(t)$ in equation #ref(<2.2.ode>):
   $
     dot.double(y) + b / M dot(y) + k / M y + (k a) / M y^3 = 1 / M u
   $
-  Define that
+  Let
   $
     x_1 & = y #<2.2.def.1> \
     x_2 & = dot(y) #<2.2.def.2>
@@ -123,7 +123,7 @@
 
 #solution(append: "for (3)")[
   This system is nonlinear due to the cubic term $x_1^3$ in equation #ref(<2.2.state.2>).
-  To linearize it, define $vx_0 = vbu(0)$ and $u_0 = 0$, then
+  Linearize the system with $vx_0 = vbu(0)$ and $u_0 = 0$.
   $
     vA & = evaluated(pdv(vf, vx))_(vx & = vx_0 \ u & = u_0)
          = evaluated(mat(0, 1; - (k - 3 k a x_1^2) / M, - b / M))_(vx & = vx_0 \ u & = u_0)
@@ -151,7 +151,7 @@
 #question("2.9")[]
 
 #solution[
-  Obtain that
+  The system gives that
   $
     u(t) = r(t) - K y(t) = r(t) - K vC vx(t)
   $
@@ -171,8 +171,8 @@
 #question("2.10")[]
 
 #solution[
-  Omit the $(s)$.
-  Define the input of $A$ as $u$, output of $A$ as $x$, output of $B$ as $z$.
+  Omitting the $(s)$.
+  Let $U$ be the input to $A$, and $X$ and $Z$ the outputs of $A$ and $B$.
   $
     U & = R - E Z \
     X & = A U \
