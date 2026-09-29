@@ -51,7 +51,7 @@
   show table.cell.where(y: 0): set text(weight: "bold")
   // set figure(gap: 0.6em)
   // show figure.caption: set text(size: 9pt, fill: muted)
-  show raw: set text(font: "JuliaMono", size: 9pt)
+  show raw: set text(font: "New Computer Modern Mono", size: 9pt)
   show raw.where(block: true): it => block(
     width: 100%,
     inset: 10pt,
