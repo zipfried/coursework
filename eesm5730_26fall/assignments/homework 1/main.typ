@@ -54,6 +54,7 @@
 #let vC = $vbu(C)$
 #let vD = $vbu(D)$
 #let vI = $vbu(I)$
+#let vT = $vbu(T)$
 #let vf = $vbu(f)$
 #let vg = $vbu(g)$
 
@@ -68,15 +69,16 @@
 #codly(
   languages: codly-languages,
   display-name: true,
-  display-icon: false,
+  display-icon: true,
   lang-format: (name, icon, color) => box(
     fill: color.lighten(85%),
     inset: (x: 4pt, y: 2pt),
     name,
   ),
   number-format: none,
+  inset: (x: 0.32em, y: 0.32em),
   zebra-fill: none,
-  fill: luma(247),
+  fill: luma(240),
   stroke: none,
   radius: 0pt,
 )
@@ -126,7 +128,7 @@
   Linearize the system with $vx_0 = vbu(0)$ and $u_0 = 0$.
   $
     vA & = evaluated(pdv(vf, vx))_(vx & = vx_0 \ u & = u_0)
-         = evaluated(mat(0, 1; - (k - 3 k a x_1^2) / M, - b / M))_(vx & = vx_0 \ u & = u_0)
+         = evaluated(mat(0, 1; - (k + 3 k a x_1^2) / M, - b / M))_(vx & = vx_0 \ u & = u_0)
       && = mat(0, 1; - k / M, - b / M) #<2.2.state.A> \
     vB & = evaluated(pdv(vf, u))_(vx & = vx_0 \ u & = u_0)
          = evaluated(mat(0; 1 / M))_(vx & = vx_0 \ u & = u_0)
@@ -151,7 +153,7 @@
 #question("2.9")[]
 
 #solution[
-  The system gives that
+  From the feedback,
   $
     u(t) = r(t) - K y(t) = r(t) - K vC vx(t)
   $
@@ -231,7 +233,7 @@
     + mat(1 / a_0; 0; dots.v; 0) u(t) \
     y(t) & = mat(b_1 - b_0 a_1 / a_0,
                  dots.c,
-                 b_(n - 1) - b_0 a_(n - 1) / a_0
+                 b_(n - 1) - b_0 a_(n - 1) / a_0,
                  b_n - b_0 a_n / a_0) vx(t)
     + b_0 / a_0 u(t)
   $
@@ -245,4 +247,11 @@
   #matlab-code("Solution 5")
   Output:
   #matlab-output("Solution 5")
+  Notice that `sys`, `sys2` and `sys3` have different state-space representations but the same transfer function.
+  Let $vx' = vT vx$ where $vT$ is invertible. Then
+  $
+    dot(vx)' & = vT dot(vx) = vT (vA vx + vB u) = vT vA vT^(-1) vx' + vT vB u \
+    y        & = vC vT^(-1) vx' + vD u
+  $
+  Thus, $vA' = vT vA vT^(-1)$, $vB' = vT vB$, $vC' = vC vT^(-1)$ and $vD' = vD$.
 ]
