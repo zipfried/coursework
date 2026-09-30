@@ -76,7 +76,7 @@
     name,
   ),
   number-format: none,
-  inset: (x: 0.32em, y: 0.32em),
+  inset: (x: 0.28em, y: 0.28em),
   zebra-fill: none,
   fill: luma(240),
   stroke: none,
